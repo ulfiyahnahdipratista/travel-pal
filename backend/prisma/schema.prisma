@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model destinasi {
+  id            Int    @id @default(autoincrement())
+  url_maps      String @map("url_maps")
+  nama          String
+  rating        Float
+  jumlah_review Int    @map("jumlah_review")
+  tipe          String
+  url_gambar    String @map("url_gambar") @db.Text()
+  kabupaten     String
+  lat           Float
+  lon           Float
+  kategori      String
+  deskripsi     String @db.Text()
+}
+
+model kuliner {
+  id         Int    @id @default(autoincrement())
+  nama       String
+  kabupaten  String
+  deskripsi  String @db.Text()
+  url_gambar String @map("url_gambar") @db.Text()
+}
+
+model rekomendasi {
+  id             Int      @id @default(autoincrement())
+  user_id        String   @map("user_id") @db.Text() // melekat pada user yang membuat rekomendasi
+  tipe_destinasi String   @map("tipe_destinasi")
+  score          Float
+  created_at     DateTime @default(now()) @map("created_at")
+}
+
+model favorit {
+  id                   Int      @id @default(autoincrement())
+  user_id              String   @map("user_id") @db.Text() // melekat pada user yang membuat favorit
+  tipe                 String   @map("tipe") // "destinasi" atau "kuliner"
+  destinasi_kuliner_id Int?     @map("destinasi_kuliner_id") // nullable untuk mendukung favorit kuliner
+  created_at           DateTime @default(now()) @map("created_at")
+}
+
+// model supabase_users {
+//   id         String   @id @db.Text() // ID pengguna dari Supabase
+//   email      String
+//   created_at DateTime
+
+//   @@map("supabase_users")
+// }
+
+// POST http://127.0.0.1:8000/recommendation?max_recom=7&treshold=0.4
+// {
+//   "status": "success",
+//   "message": "Rekomendasi berhasil dibuat",
+//   "data": [
+//     {
+//       "tipe_destinasi": "Pantai",
+//       "score": 0.91
+//     },
+//     {
+//       "tipe_destinasi": "Taman Rekreasi Air",
+//       "score": 0.87
+//     }
+//   ]
+// }

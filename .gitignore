@@ -1,0 +1,3 @@
+*.zip
+machine_learning/env
+machine_learning/__pycache__
