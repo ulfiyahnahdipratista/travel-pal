@@ -63,7 +63,9 @@ export function MainNav() {
       <div className="flex md:px-20 h-16 justify-between items-center px-4">
         {/* Logo Text - Selalu Terlihat */}
         <div className="flex items-center"> {/* mr-auto untuk mendorong konten lain ke kanan di mobile */}
-          <Link to="/" className="text-2xl font-bold">
+          <Link to="/" className="text-2xl font-bold flex items-center">
+            <img className="size-10" src="/img/logo.png" alt="Logo" />
+
             Travel Pal
           </Link>
         </div>
