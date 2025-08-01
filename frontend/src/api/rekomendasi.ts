@@ -13,7 +13,7 @@ type ReqApiSurvey = {
 
 export const ApiSurvey = async (payload: ReqApiSurvey) => {
   try {
-    console.log("token supabase: ", token);
+    // console.log("token supabase: ", token);
     const response = await axios.post(`${API_URL}/survey`, payload, {
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const ApiSurvey = async (payload: ReqApiSurvey) => {
 
 export const ApiGetRekomendasi = async () => {
   try {
-    console.log("token supabase: ", token);
+    // console.log("token supabase: ", token);
     const response = await axios.get(`${API_URL}/survey`, {
       headers: {
         "Content-Type": "application/json",

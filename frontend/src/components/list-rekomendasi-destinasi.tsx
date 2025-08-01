@@ -31,7 +31,7 @@ export const ListRekomendasiDestinasi: React.FC<{}> = ({
 
       const { data } = await ApiGetRekomendasi();
 
-      console.log("get_rekomendasi: ", data);
+      // console.log("get_rekomendasi: ", data);
 
       // Panggil fungsi ApiDestinasi Anda
       const response = await ApiDestinasi({

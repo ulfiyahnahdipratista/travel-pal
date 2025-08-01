@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const handleUser = (supabaseUser: SupabaseUser | null) => {
     if (supabaseUser) {
-      console.log('supabaseUser ', supabaseUser);
+      // console.log('supabaseUser ', supabaseUser);
 
       const name = supabaseUser.user_metadata?.full_name || '';
       const email = supabaseUser.email || '';

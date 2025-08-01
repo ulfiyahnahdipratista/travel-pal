@@ -12,7 +12,7 @@ type ReqApiFavoritToggle = {
 
 export const ApiFavoritToggle = async (payload: ReqApiFavoritToggle) => {
   try {
-    console.log("token supabase: API FavoritToggle: ", token);
+    // console.log("token supabase: API FavoritToggle: ", token);
     const response = await axios.post(`${API_URL}/favorit/toggle`, payload, {
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export const ApiFavoritToggle = async (payload: ReqApiFavoritToggle) => {
       },
     });
 
-    console.log("API FavoritToggle: ", response.data);
+    // console.log("API FavoritToggle: ", response.data);
 
     return response.data;
   } catch (error) {
@@ -33,7 +33,7 @@ export const ApiFavoritToggle = async (payload: ReqApiFavoritToggle) => {
 // tipe | destinasi | kuliner
 export const ApiFavorit = async (tipe: string) => {
   try {
-    console.log("token supabase: ", token);
+    // console.log("token supabase: ", token);
     const response = await axios.get(`${API_URL}/favorit?tipe=${tipe}`, {
       headers: {
         "Content-Type": "application/json",

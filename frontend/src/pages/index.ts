@@ -6,7 +6,7 @@ import Kuliner from "./Kuliner";
 import Destinasi from "./Destinasi";
 import DestinasiDetail from "./DestinasiDetail";
 import KulinerDetail from "./KulinerDetail";
-import Favorit from "./favorit";
+import Favorit from "./Favorit";
 export {
   Login,
   Register,

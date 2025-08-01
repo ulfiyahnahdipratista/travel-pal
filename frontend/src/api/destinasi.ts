@@ -11,7 +11,7 @@ export type ReqApiDestinasi = {
 
 export const ApiDestinasi = async (payload: ReqApiDestinasi) => {
   try {
-    console.log("token supabase: ", token);
+    // console.log("token supabase: ", token);
     const response = await axios.post(`${API_URL}/destinasi`, payload, {
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const ApiDestinasi = async (payload: ReqApiDestinasi) => {
 
 export const ApiListDestinasi = async (page: number, limit: number) => {
   try {
-    console.log("token supabase: ", token);
+    // console.log("token supabase: ", token);
     const response = await axios.get(
       `${API_URL}/destinasi/list?page=${page}&limit=${limit}`,
       {

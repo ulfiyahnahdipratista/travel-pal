@@ -3,7 +3,8 @@ import { ListRekomendasiDestinasi } from "@/components/list-rekomendasi-destinas
 
 const Home = () => {
   return (
-    <BaseLayout text="Welcome to Travel Pal" deskripsi="Your journey starts here!" main_page={true}>
+    <BaseLayout
+      text="Welcome to Travel Pal" deskripsi="Your journey starts here!" main_page={true}>
       <div className="flex flex-col items-center justify-center bg-gray-100">
         <ListRekomendasiDestinasi />
       </div>

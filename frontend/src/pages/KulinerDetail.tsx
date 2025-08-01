@@ -1,12 +1,21 @@
 import { KulinerDetailContent } from "@/components/detail-kuliner";
 import { Button } from "@/components/ui/button";
 import BaseLayout from "@/layouts/base";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 
 export default function KulinerDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const kulinerId = id || '';
+
+
+  // Tambahkan useEffect ini
+  useEffect(() => {
+    // Scroll ke bagian paling atas halaman saat komponen di-mount
+    window.scrollTo(0, 0);
+  }, []); // Array dependensi kosong agar hanya berjalan sekali saat komponen dimuat
+
 
   return (
     <BaseLayout
