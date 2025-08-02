@@ -25,6 +25,9 @@ source venv/Scripts/activate
 // ketiga
 pip install -r requirements.txt
 
+// ke empat
+uvicorn main:app --reload
+
 // jika ingin non active kan venv
 deactivate
 ```
