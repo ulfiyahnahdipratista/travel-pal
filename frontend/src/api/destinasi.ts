@@ -1,7 +1,7 @@
 import axios from "axios";
 import { supabase } from "@/lib/supabaseClient";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "http://202.10.47.198:3000";
 const { data } = await supabase.auth.getSession();
 const token = data.session?.access_token;
 
