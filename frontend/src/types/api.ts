@@ -1,7 +1,5 @@
 // src/types/api.ts (buat file ini)
 
-import { Destinasi } from "@/pages";
-
 export interface Destination {
   id: number;
   url_maps: string;

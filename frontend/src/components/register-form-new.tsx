@@ -12,7 +12,7 @@ import { Slider } from "@/components/ui/slider"; // Optional: for zoom control
 import { Minus, Plus } from "lucide-react"; // Icons for zoom
 
 import ReactCrop from 'react-image-crop';
-import type { Crop, PixelCrop, PercentCrop } from 'react-image-crop';
+import type { Crop, PixelCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { DialogDescription } from "@radix-ui/react-dialog"; // Pastikan ini diimpor dengan benar
 
@@ -78,7 +78,7 @@ export function RegisterFormNew({
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
   const imgRef = useRef<HTMLImageElement>(null);
   const [scale, setScale] = useState(1);
-  const [rotate, setRotate] = useState(0);
+  const [rotate] = useState(0);
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
 
   const navigate = useNavigate(); // Pastikan ini diimpor dari 'react-router-dom'
@@ -91,6 +91,8 @@ export function RegisterFormNew({
   };
 
   const handleImageLoaded = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.log(e);
+
     // Pastikan crop diinisialisasi hanya jika gambar sudah dimuat
     if (imgRef.current) {
       setCrop({
@@ -173,6 +175,8 @@ export function RegisterFormNew({
           upsert: true,
           cacheControl: "3600",
         });
+
+      console.log("uploadData : ", uploadData);
 
       if (uploadError) {
         toast.warning(`Upload foto gagal: ${uploadError.message}. Lanjut tanpa foto.`);

@@ -1,10 +1,10 @@
 // src/components/DestinasiDetailContent.tsx
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router"; // Gunakan useNavigate dan Link dari react-router-dom
+import { useNavigate } from "react-router"; // Gunakan useNavigate dan ari react-router-dom
 import { ApiDestinasiDetail } from "../api/destinasi"; // sesuaikan path-nya
 import { ApiKuliner } from "@/api/kuliner";
 import type { Destination, ApiResponse, Kuliner } from "@/types/api"; // Import tipe data
-import { MapPin, Star, Bookmark, Globe, Tag } from "lucide-react";
+import { MapPin, Star, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
@@ -23,7 +23,7 @@ export const DestinasiDetailContent: React.FC<DestinasiDetailContentProps> = ({ 
   const [rekomendasiKuliner, setRekomendasiKuliner] = useState<Kuliner[]>([]); // Default ke array kosong
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
+  // const [favoriteIds, setFavoriteIds] = useState<Set<number>>(new Set());
   const navigate = useNavigate();
   const { favoriteKulinerIds, toggleFavorite } = useFavorites(); // <-- Gunakan useFavorites hook
 

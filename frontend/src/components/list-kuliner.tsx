@@ -30,8 +30,8 @@ const ListKuliner: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(12); // Jumlah item per halaman
-  const [totalItems, setTotalItems] = useState<number>(0);
+  const [limit] = useState<number>(12); // Jumlah item per halaman
+  // const [totalItems, setTotalItems] = useState<number>(0);
   // const [favoriteKulinerIds, setFavoriteKulinerIds] = useState<Set<number>>(new Set()); // Untuk status favorit
   const [searchTerm, setSearchTerm] = useState<string>(''); // State untuk pencarian
 
@@ -49,7 +49,7 @@ const ListKuliner: React.FC = () => {
       if (response.status === "success" && response.data) {
         setKulinerData(response.data);
         setTotalPages(response.meta.totalPages);
-        setTotalItems(response.meta.total);
+        // setTotalItems(response.meta.total);
       } else {
         setKulinerData([]);
         setError(response.message || "Gagal mengambil data kuliner.");

@@ -28,8 +28,8 @@ const ListDestinasi: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(12); // Items per page
-  const [totalItems, setTotalItems] = useState<number>(0);
+  const [limit] = useState<number>(12); // Items per page
+  // const [setTotalItems] = useState<number>(0);
   // const [favoriteDestinasiIds, setFavoriteDestinasiIds] = useState<Set<number>>(new Set());
   const [searchTerm, setSearchTerm] = useState<string>(''); // New state for search term
 
@@ -46,7 +46,7 @@ const ListDestinasi: React.FC = () => {
       if (response.status === "success" && response.data) {
         setDestinations(response.data);
         setTotalPages(response.meta.totalPages);
-        setTotalItems(response.meta.total);
+        // setTotalItems(response.meta.total);
       } else {
         setDestinations([]);
         setError(response.message || "Failed to fetch destination data.");

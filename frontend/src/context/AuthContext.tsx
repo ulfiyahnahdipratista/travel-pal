@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import type { ReactNode } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import type { Session, User as SupabaseUser } from '@supabase/supabase-js';
+import type { User as SupabaseUser } from '@supabase/supabase-js';
 import { useNavigate } from 'react-router';
 
 // User type
